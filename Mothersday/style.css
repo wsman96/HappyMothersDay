@@ -1,0 +1,445 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Segoe+Script&display=swap");
+
+body {
+  /* Soft floral gradient background */
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", "Arial", sans-serif;
+  background: linear-gradient(135deg, #ffe6f0 0%, #f9f6ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(120, 40, 120, 0.15), 0 1.5px 8px #e2555577;
+  padding: 40px 32px 32px 32px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInCard 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.decorative-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  animation: popIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.page {
+  display: none;
+  animation: fadeInPage 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1,
+h2 {
+  color: #e25555;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #fff2f2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.subtitle {
+  color: #a05a9c;
+  font-size: 1.1rem;
+  margin-bottom: 1.5em;
+  font-style: italic;
+}
+
+.poem p {
+  font-family: "Georgia", serif;
+  color: #7d3c98;
+  font-size: 1.08rem;
+  margin: 0 0 1em 0;
+  line-height: 1.7;
+  background: #fff6fa;
+  border-radius: 12px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 4px #e2555522;
+}
+
+.signature {
+  text-align: right;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  color: #e25555;
+  font-size: 1.1rem;
+  margin-top: 2em;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+button {
+  background: linear-gradient(90deg, #e25555 60%, #a05a9c 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.7em 2.2em;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #e2555533;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #a05a9c 60%, #e25555 100%);
+  transform: scale(1.07) rotate(-2deg);
+}
+
+/* Confetti effect */
+.confetti {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.confetti-piece {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.85;
+  animation: confetti-fall 1.8s linear forwards;
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-30px) scale(1.2) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(350px) scale(0.8) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Reasons We Love You page */
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0 0 0;
+}
+.reasons-list li {
+  font-size: 1.1rem;
+  margin-bottom: 0.7em;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  color: #a05a9c;
+  background: #fff6fa;
+  border-radius: 10px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 4px #e2555522;
+}
+
+/* Family Memories page */
+.photo-collage {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 1.2em 0;
+}
+.photo-collage img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e25555;
+  box-shadow: 0 2px 8px #e2555533;
+  transition: transform 0.2s;
+}
+.photo-collage img:hover {
+  transform: scale(1.12) rotate(-2deg);
+}
+.memories-caption {
+  text-align: center;
+  color: #7d3c98;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+/* Coupon page */
+.coupon {
+  background: linear-gradient(120deg, #fff6fa 60%, #ffe6f0 100%);
+  border: 2px dashed #e25555;
+  border-radius: 18px;
+  padding: 1.2em 1.5em;
+  margin: 1.2em 0;
+  box-shadow: 0 2px 8px #e2555522;
+  text-align: center;
+}
+.coupon h3 {
+  color: #e25555;
+  margin-bottom: 0.7em;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+}
+.coupon ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em 0;
+}
+.coupon ul li {
+  margin-bottom: 0.5em;
+  font-size: 1.08rem;
+  color: #a05a9c;
+}
+.coupon-note {
+  color: #7d3c98;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Mother's Day themed floating hearts */
+.flower {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.85;
+  animation: heart-float 7s linear infinite;
+}
+@keyframes heart-float {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-420px) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Opening card photo */
+.opening-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.opening-photo img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid #e25555;
+  box-shadow: 0 0 16px 4px #e2555588, 0 0 24px 8px #a05a9c55, 0 8px 24px #a05a9c33, 0 0 0 6px #fff6fa;
+  background: #fff6fa;
+  transition: box-shadow 0.4s, transform 0.3s;
+  image-rendering: auto;
+  animation: themedGlow 2.2s infinite alternate;
+}
+@keyframes themedGlow {
+  0% {
+    box-shadow: 0 0 16px 4px #e2555588, 0 0 24px 8px #a05a9c55, 0 8px 24px #a05a9c33, 0 0 0 6px #fff6fa;
+  }
+  100% {
+    box-shadow: 0 0 24px 8px #a05a9c88, 0 0 32px 12px #e2555577, 0 8px 24px #e2555533, 0 0 0 10px #fff6fa;
+  }
+}
+@media (max-width: 600px) {
+  .opening-photo img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Soft background overlay */
+.frontpage-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 32px 32px 32px 32px;
+  background: radial-gradient(circle at 60% 30%, #ffe6f0 60%, #f9f6ff 100%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.page#page1 {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  background: linear-gradient(135deg, #fff6fa 60%, #ffe6f0 100%);
+  box-shadow: 0 4px 32px #e2555522;
+  border-radius: 32px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.page#page1 h1,
+.page#page1 .subtitle {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.2em 0.7em;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #fff6fa99;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: fit-content;
+  max-width: 90%;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page#page1 h1 {
+  font-family: "Quicksand", "Segoe Script", "Brush Script MT", cursive,
+    sans-serif;
+  color: #e25555;
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 12px #fff6fa, 0 1px 0 #ffe6f0;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 0.3em 1.2em 0.2em 1.2em;
+  border-radius: 20px;
+  margin-bottom: 0.5em;
+  margin-top: 0.2em;
+  display: inline-block;
+  box-shadow: 0 2px 12px #e2555522;
+}
+
+.page#page1 .subtitle {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  color: #e25555;
+  font-size: 1.18rem;
+  background: rgba(255, 255, 255, 0.93);
+  padding: 0.2em 1em;
+  border-radius: 14px;
+  margin-bottom: 1.2em;
+  display: inline-block;
+  box-shadow: 0 1px 8px #e2555522;
+}
+
+.opening-photo.highlight {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.opening-photo.highlight img {
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 7px solid;
+  border-image: linear-gradient(90deg, #e25555 60%, #a05a9c 100%);
+  border-image-slice: 1;
+  box-shadow: 0 8px 32px #a05a9c55, 0 0 0 10px #fff6fa;
+  background: #fff6fa;
+  transition: transform 0.3s, box-shadow 0.3s;
+  image-rendering: auto;
+}
+
+.opening-photo.highlight img:hover {
+  transform: scale(1.12) rotate(-2deg);
+  box-shadow: 0 16px 48px #e25555aa, 0 0 0 10px #fff6fa;
+}
+
+@media (max-width: 600px) {
+  .opening-photo.highlight img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.frontpage-flowers {
+  display: flex;
+  justify-content: center;
+  gap: 1.2em;
+  margin-top: 18px;
+  font-size: 2.3rem;
+  z-index: 2;
+  position: relative;
+  animation: flowerFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 8px #ffe6f0);
+}
+
+@keyframes flowerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
